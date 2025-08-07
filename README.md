@@ -46,14 +46,6 @@ Este repositório contém um sistema de vendas desenvolvido como projeto acadêm
 /View        -> Formulários gráficos da aplicação
 ```
 
-## 👥 Acesso ao sistema
-
-- **Admin**
-  - login: `adm`
-  - senha: `123`
-- **Usuário Comum**
-  - acesso limitado a visualização de dados
-
 ## 📌 Observações Finais
 
 Este sistema é ideal para fins educacionais, proporcionando prática com conceitos essenciais de desenvolvimento desktop, banco de dados e estruturação de software escalável.
