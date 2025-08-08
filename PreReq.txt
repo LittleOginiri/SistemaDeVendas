@@ -1,0 +1,191 @@
+:-------------------------------------------------------: Criação do banco :-------------------------------------------------------:
+
+CREATE DATABASE SistemaVendas;
+GO
+
+USE SistemaVendas;
+GO
+
+:-------------------------------------------------------: Criação das tabelas :-------------------------------------------------------:
+
+-- Tabela Clientes
+CREATE TABLE dbo.Clientes (
+    id_cliente   INT IDENTITY(1,1) PRIMARY KEY,
+    nome         NVARCHAR(100)   NOT NULL,
+    cpf          NVARCHAR(20)    NOT NULL,
+    telefone     NVARCHAR(20)    NULL,
+    email        NVARCHAR(100)   NULL
+);
+
+-- Tabela Usuários
+CREATE TABLE dbo.Usuarios (
+    id_usuario     INT IDENTITY(1,1) PRIMARY KEY,
+    nome           NVARCHAR(100)   NOT NULL,
+    login          NVARCHAR(50)    NOT NULL,
+    senha          NVARCHAR(100)   NOT NULL,
+    tipo_usuario   NVARCHAR(10)    NOT NULL,
+    id_cliente     INT             NOT NULL,
+    CONSTRAINT FK_Usuarios_Clientes FOREIGN KEY(id_cliente)
+        REFERENCES dbo.Clientes(id_cliente)
+);
+
+-- Tabela Produtos
+CREATE TABLE dbo.Produtos (
+    id_produto   INT IDENTITY(1,1) PRIMARY KEY,
+    nome         NVARCHAR(100)   NOT NULL,
+    descricao    NVARCHAR(255)   NOT NULL,
+    preco        DECIMAL(18,2)   NOT NULL,
+    estoque      INT             NOT NULL
+);
+
+-- Tabela Vendas
+CREATE TABLE dbo.Vendas (
+    id_venda     INT IDENTITY(1,1) PRIMARY KEY,
+    id_usuario   INT             NOT NULL,
+    data_venda   DATETIME        NOT NULL,
+    valor        DECIMAL(18,2)   NOT NULL,
+    CONSTRAINT FK_Vendas_Usuarios FOREIGN KEY(id_usuario)
+        REFERENCES dbo.Usuarios(id_usuario)
+);
+
+-- Tabela ItensVendas
+CREATE TABLE dbo.ItensVendas (
+    id_itemvenda  INT IDENTITY(1,1) PRIMARY KEY,
+    id_venda      INT             NOT NULL,
+    id_produto    INT             NOT NULL,
+    quantidade    INT             NOT NULL,
+    valor_item    DECIMAL(18,2)   NOT NULL,
+    CONSTRAINT FK_ItensVendas_Vendas FOREIGN KEY(id_venda)
+        REFERENCES dbo.Vendas(id_venda),
+    CONSTRAINT FK_ItensVendas_Produtos FOREIGN KEY(id_produto)
+        REFERENCES dbo.Produtos(id_produto)
+);
+GO
+
+:-------------------------------------------------------: Inserção do Administrador :-------------------------------------------------------:
+
+-- 2) Inserção do Administrador como CLIENTE
+INSERT INTO dbo.Clientes (nome, cpf, telefone, email)
+VALUES
+  ('Administrador', '00000000000', '(00) 0000-0000', 'admin@sistema.com');
+GO
+
+-- 3) Inserção do Administrador como USUÁRIO
+--    Substitua o valor de id_cliente abaixo pelo id gerado (normalmente 1)
+INSERT INTO dbo.Usuarios (nome, login, senha, tipo_usuario, id_cliente)
+VALUES
+  ('Administrador', 'adm', '123', 'Admin', 1);
+GO
+
+
+:-------------------------------------------------------: Codigo para popular a tabela e utilizar os grafios de linha :-------------------------------------------------------:
+
+USE SistemaVendas;
+GO
+
+DECLARE @vid INT;
+
+-- Janeiro: Produto 1 (preço 2.50) x 4 → 10.00
+INSERT INTO Vendas (id_usuario, data_venda, valor)
+VALUES (1, '2025-01-15 09:00:00', 10.00);
+SET @vid = SCOPE_IDENTITY();
+INSERT INTO ItensVendas (id_venda, id_produto, quantidade, valor_item)
+VALUES 
+    (@vid, 1, 4, 4 * 2.50);
+
+-- Fevereiro: Produto 2 (preço 15.00) x 1 → 15.00
+INSERT INTO Vendas (id_usuario, data_venda, valor)
+VALUES (1, '2025-02-20 11:30:00', 15.00);
+SET @vid = SCOPE_IDENTITY();
+INSERT INTO ItensVendas (id_venda, id_produto, quantidade, valor_item)
+VALUES 
+    (@vid, 2, 1, 1 * 15.00);
+
+-- Março: Produto 1 x 8 → 20.00
+INSERT INTO Vendas (id_usuario, data_venda, valor)
+VALUES (1, '2025-03-10 14:45:00', 20.00);
+SET @vid = SCOPE_IDENTITY();
+INSERT INTO ItensVendas (id_venda, id_produto, quantidade, valor_item)
+VALUES 
+    (@vid, 1, 8, 8 * 2.50);
+
+-- Abril: Produto 2 x 2 → 30.00
+INSERT INTO Vendas (id_usuario, data_venda, valor)
+VALUES (1, '2025-04-05 16:00:00', 30.00);
+SET @vid = SCOPE_IDENTITY();
+INSERT INTO ItensVendas (id_venda, id_produto, quantidade, valor_item)
+VALUES 
+    (@vid, 2, 2, 2 * 15.00);
+
+-- Maio: Produto 1 x 6 → 15.00
+INSERT INTO Vendas (id_usuario, data_venda, valor)
+VALUES (1, '2025-05-22 10:15:00', 15.00);
+SET @vid = SCOPE_IDENTITY();
+INSERT INTO ItensVendas (id_venda, id_produto, quantidade, valor_item)
+VALUES 
+    (@vid, 1, 6, 6 * 2.50);
+
+-- Junho: Produto 2 x 3 → 45.00
+INSERT INTO Vendas (id_usuario, data_venda, valor)
+VALUES (1, '2025-06-18 13:30:00', 45.00);
+SET @vid = SCOPE_IDENTITY();
+INSERT INTO ItensVendas (id_venda, id_produto, quantidade, valor_item)
+VALUES 
+    (@vid, 2, 3, 3 * 15.00);
+
+-- Julho: Produto 1 x 10 → 25.00
+INSERT INTO Vendas (id_usuario, data_venda, valor)
+VALUES (1, '2025-07-09 09:20:00', 25.00);
+SET @vid = SCOPE_IDENTITY();
+INSERT INTO ItensVendas (id_venda, id_produto, quantidade, valor_item)
+VALUES 
+    (@vid, 1, 10, 10 * 2.50);
+
+-- Agosto: Produto 2 x 4 → 60.00
+INSERT INTO Vendas (id_usuario, data_venda, valor)
+VALUES (1, '2025-08-14 15:45:00', 60.00);
+SET @vid = SCOPE_IDENTITY();
+INSERT INTO ItensVendas (id_venda, id_produto, quantidade, valor_item)
+VALUES 
+    (@vid, 2, 4, 4 * 15.00);
+
+-- Setembro: Produto 1 x 12 → 30.00
+INSERT INTO Vendas (id_usuario, data_venda, valor)
+VALUES (1, '2025-09-02 11:10:00', 30.00);
+SET @vid = SCOPE_IDENTITY();
+INSERT INTO ItensVendas (id_venda, id_produto, quantidade, valor_item)
+VALUES 
+    (@vid, 1, 12, 12 * 2.50);
+
+-- Outubro: Produto 2 x 5 → 75.00
+INSERT INTO Vendas (id_usuario, data_venda, valor)
+VALUES (1, '2025-10-27 17:25:00', 75.00);
+SET @vid = SCOPE_IDENTITY();
+INSERT INTO ItensVendas (id_venda, id_produto, quantidade, valor_item)
+VALUES 
+    (@vid, 2, 5, 5 * 15.00);
+
+-- Novembro: Produto 1 x 16 → 40.00
+INSERT INTO Vendas (id_usuario, data_venda, valor)
+VALUES (1, '2025-11-11 08:50:00', 40.00);
+SET @vid = SCOPE_IDENTITY();
+INSERT INTO ItensVendas (id_venda, id_produto, quantidade, valor_item)
+VALUES 
+    (@vid, 1, 16, 16 * 2.50);
+
+-- Dezembro: Produto 2 x 6 → 90.00
+INSERT INTO Vendas (id_usuario, data_venda, valor)
+VALUES (1, '2025-12-20 12:00:00', 90.00);
+SET @vid = SCOPE_IDENTITY();
+INSERT INTO ItensVendas (id_venda, id_produto, quantidade, valor_item)
+VALUES 
+    (@vid, 2, 6, 6 * 15.00);
+
+GO
+
+-- Confira
+SELECT * FROM Vendas WHERE YEAR(data_venda)=2025 ORDER BY data_venda;
+SELECT * FROM ItensVendas WHERE id_venda BETWEEN 1 AND 12 ORDER BY id_itemvenda;
+
+
+
