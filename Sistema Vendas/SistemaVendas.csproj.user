@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="View\FormAddCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormAddProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormAddUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormAdminMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormBackupRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormImportCsv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormItensVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormPdfReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormRelatorioQuantidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormRelatorioReceita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\FormVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

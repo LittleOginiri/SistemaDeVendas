@@ -1,0 +1,34 @@
+[06/06/2025 12:04:00] Usuário: adm | Ação: Login efetuado com sucesso
+[06/06/2025 12:06:15] Usuário: adm | Ação: Login efetuado com sucesso
+[06/06/2025 12:08:28] Usuário: adm | Ação: Login efetuado com sucesso
+[06/06/2025 12:08:32] Usuário: 1 | Ação: Cliente excluído: Teste de Log (ID: 20)
+[06/06/2025 12:08:40] Usuário: admin | Ação: Produto inserido: Produto Log
+[06/06/2025 12:08:45] Usuário: admin | Ação: Produto editado: Produto Log (ID: 9)
+[06/06/2025 12:08:47] Usuário: admin | Ação: Produto excluído: Produto Log (ID: 9)
+[06/06/2025 12:08:52] Usuário: 1 | Ação: Nova venda registrada - ID: 31, Total: $75.00
+[06/06/2025 12:09:03] Usuário: testeeeeeee | Ação: Usuário editado: Tentativa 206 (ID: 10)
+[06/06/2025 12:24:33] Usuário: adm | Ação: Login efetuado com sucesso
+[06/06/2025 14:50:42] Usuário: adm | Ação: Login efetuado com sucesso
+[06/06/2025 14:56:48] Usuário: adm | Ação: Login efetuado com sucesso
+[06/06/2025 14:57:33] Usuário: 1 | Ação: Cliente inserido: Video1 (CPF: 11133344455)
+[06/06/2025 14:57:44] Usuário: 1 | Ação: Cliente editado: Video1 (ID: 21)
+[06/06/2025 14:57:47] Usuário: 1 | Ação: Cliente excluído: Video1 (ID: 21)
+[06/06/2025 14:57:59] Usuário: admin | Ação: Produto inserido: Produto Teste 50
+[06/06/2025 14:58:05] Usuário: admin | Ação: Produto editado: Produto Teste 50 (ID: 10)
+[06/06/2025 14:58:08] Usuário: admin | Ação: Produto excluído: Produto Teste 50 (ID: 10)
+[06/06/2025 14:58:25] Usuário: 1 | Ação: Nova venda registrada - ID: 32, Total: $12.50
+[06/06/2025 14:59:41] Usuário: adm | Ação: Login efetuado com sucesso
+[06/06/2025 14:59:54] Usuário: 1 | Ação: Cliente inserido: teste1 (CPF: 12312312312345)
+[06/06/2025 15:00:00] Usuário: 1 | Ação: Cliente editado: teste1 (ID: 22)
+[06/06/2025 15:00:04] Usuário: 1 | Ação: Cliente excluído: teste1 (ID: 22)
+[06/06/2025 15:00:12] Usuário: 1 | Ação: Cliente inserido: teste (CPF: 00099900012)
+[06/06/2025 15:00:23] Usuário: admin | Ação: Produto inserido: Nome do produto
+[06/06/2025 15:00:30] Usuário: admin | Ação: Produto editado: Nome do produto (ID: 11)
+[06/06/2025 15:00:36] Usuário: admin | Ação: Produto editado: Caneta Azul (ID: 1)
+[06/06/2025 15:00:38] Usuário: admin | Ação: Produto excluído: Nome do produto (ID: 11)
+[06/06/2025 15:00:50] Usuário: 1 | Ação: Nova venda registrada - ID: 33, Total: $12.50
+[06/06/2025 15:01:12] Usuário: testando50 | Ação: Usuário inserido: teste (Comum)
+[06/06/2025 15:01:18] Usuário: testando50 | Ação: Usuário editado: teste (ID: 12)
+[06/06/2025 15:01:21] Usuário: testando50 | Ação: Usuário excluído: teste (ID: 12)
+[06/06/2025 15:21:41] Usuário: adm | Ação: Login efetuado com sucesso
+[06/06/2025 17:05:13] Usuário: adm | Ação: Login efetuado com sucesso

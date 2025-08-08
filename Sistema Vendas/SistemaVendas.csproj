@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+	<PropertyGroup>
+		<!-- Executável WinForms -->
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<!-- Remoções que você já tinha -->
+	<ItemGroup>
+		<Compile Remove="obj\View\**" />
+		<EmbeddedResource Remove="obj\View\**" />
+		<None Remove="obj\View\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Windows Compatibility Pack inclui System.Windows.Forms.DataVisualization -->
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="10.0.0-preview.4.25258.110" />
+
+		<!-- Suas referências de acesso a banco de dados -->
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.0-preview1.25120.4" />
+		<PackageReference Include="MySql.Data" Version="9.3.0" />
+		<PackageReference Include="runtime.native.System.Data.SqlClient.sni" Version="4.7.0" />
+		<PackageReference Include="runtime.win-arm64.runtime.native.System.Data.SqlClient.sni" Version="4.4.0" />
+		<PackageReference Include="runtime.win-x64.runtime.native.System.Data.SqlClient.sni" Version="4.4.0" />
+		<PackageReference Include="runtime.win-x86.runtime.native.System.Data.SqlClient.sni" Version="4.4.0" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+		<PackageReference Include="System.Windows.Forms.DataVisualization" Version="1.0.0-prerelease.20110.1" />
+
+		<!-- Biblioteca para geração de PDF -->
+		<PackageReference Include="PdfSharp" Version="1.50.5147" />
+	</ItemGroup>
+
+</Project>
+
